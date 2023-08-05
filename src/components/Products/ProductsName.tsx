@@ -4,7 +4,7 @@ interface ProductsNameProps {
 	text: string;
 }
 
-const ProductsNameStyle = styled.h4`
+const ProductsNameStyle = styled.h3`
 	color: ${({ theme }) => theme.colors.black[600]};
 	display: -webkit-box;
 	font-size: var(--fs-50);

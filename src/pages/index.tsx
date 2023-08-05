@@ -32,7 +32,7 @@ const ContainerAbsolute = styled(Container)`
 	}
 `;
 
-const SliderMediumTitle = styled.h3`
+const SliderMediumTitle = styled.p`
 	color: ${({ theme }) => theme.colors.white};
 	font-size: var(--fs-600);
 	font-weight: var(--fw-bold);
@@ -43,7 +43,7 @@ const SliderMediumTitle = styled.h3`
 	}
 `;
 
-const SliderLargeTitle = styled.h3`
+const SliderLargeTitle = styled.p`
 	color: ${({ theme }) => theme.colors.white};
 	font-size: var(--fs-700);
 	font-weight: var(--fw-black);
@@ -83,7 +83,9 @@ function Home() {
 								{ url: '#newsletter', label: 'Newsletter' },
 							]}
 						/>
-						<Icons.Logo />
+						<h1>
+							<Icons.Logo />
+						</h1>
 						<Header.Account />
 						<Header.ShoppingCart />
 						<Header.SearchBar />

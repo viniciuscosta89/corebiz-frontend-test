@@ -96,7 +96,7 @@ function MobileMenu({ items }: MobileMenuProps) {
 
 	return (
 		<>
-			<HamburgerButton $isOpen={menuIsOpen} onClick={() => handleClick()}>
+			<HamburgerButton $isOpen={menuIsOpen} onClick={() => handleClick()} role="button" aria-label="menu-button">
 				<span></span>
 				<span></span>
 				<span></span>

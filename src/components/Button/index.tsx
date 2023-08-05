@@ -67,6 +67,7 @@ function Button({ children, disabled, hasMarginTopAuto, marginBottom, variant, s
 			$marginBottom={marginBottom}
 			$size={size}
 			{...props}
+			role="button"
 		>
 			{children}
 		</ButtonStyle>
