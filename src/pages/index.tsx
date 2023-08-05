@@ -1,6 +1,7 @@
 import { MouseEvent, Suspense, useContext } from 'react';
 import styled from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
+import ProgressiveImage from 'react-progressive-graceful-image';
 import Header from '../components/Header';
 import Slider from '../components/Slider';
 import Products from '../components/Products';
@@ -12,7 +13,7 @@ import Button from '../components/Button';
 import { ShoppingCartContext } from '../contexts/ShoppingCartContext';
 import Footer from '../components/Footer';
 import Icons from '../components/Icons';
-import bannerUrl from '/assets/banner.jpg';
+import bannerUrl from '/assets/banner.webp';
 
 const ContainerAbsolute = styled(Container)`
 	position: absolute;
@@ -54,6 +55,7 @@ const SliderLargeTitle = styled.h3`
 `;
 
 const SliderBanner = styled.img`
+	width: 100%;
 	height: 100%;
 	object-fit: cover;
 `;
@@ -112,7 +114,18 @@ function Home() {
 					>
 						{sliderData.map((slide) => (
 							<Slider.Item key={slide}>
-								<SliderBanner src={bannerUrl} alt="Banner" />
+								<ProgressiveImage
+									src={bannerUrl}
+									placeholder="https://placehold.co/1920x500/000000/ffffff/?text=Placeholder"
+								>
+									{(src, loading) => (
+										<SliderBanner
+											style={{ opacity: loading ? 0.5 : 1, filter: loading ? 'blur(1rem)' : 'blur(0)' }}
+											src={src}
+											alt="Banner"
+										/>
+									)}
+								</ProgressiveImage>
 								<ContainerAbsolute>
 									<Container>
 										<SliderMediumTitle>Olá, o que você está buscando?</SliderMediumTitle>
