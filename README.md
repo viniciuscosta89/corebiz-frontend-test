@@ -36,11 +36,9 @@ Users should be able to:
 
 ![](./screenshot.jpg)
 
-![](./screenshot-dark-mode.jpg)
-
 ### Links
 
-- Live Site URL: [https://news-homepage-strapi-vue-viniciuscosta89.vercel.app](https://news-homepage-strapi-vue-viniciuscosta89.vercel.app)
+- Live Site URL: [https://corebiz-frontend-test-viniciuscosta89.vercel.app](https://corebiz-frontend-test-viniciuscosta89.vercel.app)
 
 ## My process
 
