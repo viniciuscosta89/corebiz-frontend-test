@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const FooterAddress = styled.address`
-	color: ${({ theme }) => theme.colors.white};
 	font-size: var(--fs-300);
 	font-weight: var(--fw-regular);
 	display: flex;

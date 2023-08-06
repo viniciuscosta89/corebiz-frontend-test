@@ -1,6 +1,6 @@
 import { MouseEvent, Suspense, useContext } from 'react';
-import styled from 'styled-components';
-import { AnimatePresence } from 'framer-motion';
+import styled, { ThemeContext } from 'styled-components';
+import { AnimatePresence, motion } from 'framer-motion';
 import ProgressiveImage from 'react-progressive-graceful-image';
 import Header from '../components/Header';
 import Slider from '../components/Slider';
@@ -14,6 +14,7 @@ import { ShoppingCartContext } from '../contexts/ShoppingCartContext';
 import Footer from '../components/Footer';
 import Icons from '../components/Icons';
 import bannerUrl from '/assets/banner.webp';
+import { useThemeContext } from '../contexts/ThemeContext';
 
 const ContainerAbsolute = styled(Container)`
 	position: absolute;
@@ -33,7 +34,7 @@ const ContainerAbsolute = styled(Container)`
 `;
 
 const SliderMediumTitle = styled.p`
-	color: ${({ theme }) => theme.colors.white};
+	color: ${({ theme }) => theme.colors['always-white']};
 	font-size: var(--fs-600);
 	font-weight: var(--fw-bold);
 	line-height: 1;
@@ -44,7 +45,7 @@ const SliderMediumTitle = styled.p`
 `;
 
 const SliderLargeTitle = styled.p`
-	color: ${({ theme }) => theme.colors.white};
+	color: ${({ theme }) => theme.colors['always-white']};
 	font-size: var(--fs-700);
 	font-weight: var(--fw-black);
 	line-height: 1;
@@ -62,9 +63,23 @@ const SliderBanner = styled.img`
 
 const sliderData = [1, 2, 3, 4, 5];
 
+const ToggleButton = styled(Button)`
+	position: fixed;
+	display: grid;
+	place-items: center;
+	right: 0;
+	top: 50%;
+`;
+
 function Home() {
 	const { data: products } = useProducts();
 	const { handleShoppingCartItems } = useContext(ShoppingCartContext);
+	const { toggleTheme, theme } = useThemeContext();
+	const themeContext = useContext(ThemeContext);
+
+	const handleToggleTheme = () => {
+		toggleTheme();
+	};
 
 	const handleBuyButton = (e: MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
@@ -94,6 +109,34 @@ function Home() {
 			</Header.Root>
 
 			<main>
+				<ToggleButton onClick={handleToggleTheme} variant="primary" aria-label="Toggle theme">
+					<AnimatePresence mode="wait">
+						{theme.title === 'dark' ? (
+							<motion.span
+								className="material-symbols-outlined"
+								title="Switch to light mode"
+								key="dark-mode"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+							>
+								dark_mode
+							</motion.span>
+						) : (
+							<motion.span
+								className="material-symbols-outlined"
+								title="Switch to dark mode"
+								key="light-mode"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+							>
+								light_mode
+							</motion.span>
+						)}
+					</AnimatePresence>
+				</ToggleButton>
+
 				<Suspense
 					fallback={
 						<Container
@@ -257,18 +300,18 @@ function Home() {
 
 							<Footer.Buttons>
 								<Footer.Button variant="secondary" size="var(--fs-200)">
-									<Icons.Mail color="inherit" />
+									<Icons.Mail color="currentColor" />
 									<span>ENTRE EM CONTATO</span>
 								</Footer.Button>
 								<Footer.Button variant="secondary" size="var(--fs-200)">
-									<Icons.Phone color="inherit" />
+									<Icons.Phone color="currentColor" />
 									<span>FALE COM O NOSSO CONSULTOR ONLINE</span>
 								</Footer.Button>
 							</Footer.Buttons>
 
 							<Footer.Bottom>
-								<Icons.CreatedBy color="#fff" />
-								<Icons.PoweredBy color="#fff" />
+								<Icons.CreatedBy color={themeContext?.colors['always-white']} />
+								<Icons.PoweredBy color={themeContext?.colors['always-white']} />
 							</Footer.Bottom>
 						</Footer.Grid>
 					</Suspense>

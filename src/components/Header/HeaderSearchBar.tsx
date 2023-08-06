@@ -18,6 +18,7 @@ const SearchBar = styled.div`
 
 const SearchBarInput = styled.input`
 	border: none;
+	background-color: ${({ theme }) => theme.colors.white};
 	border-bottom: 1px solid ${({ theme }) => theme.colors.black[600]};
 	padding: 0.25rem 0;
 	width: 100%;

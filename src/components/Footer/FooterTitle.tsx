@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const FooterTitle = styled.h2`
-	color: ${({ theme }) => theme.colors.white};
 	font-size: var(--fs-500);
 	font-weight: var(--fw-bold);
 	display: flex;
@@ -13,7 +12,7 @@ const FooterTitle = styled.h2`
 
 	&::after {
 		content: '';
-		background-color: ${({ theme }) => theme.colors.white};
+		background-color: ${({ theme }) => theme.colors['always-white']};
 		display: block;
 		position: relative;
 		height: 0.25rem;

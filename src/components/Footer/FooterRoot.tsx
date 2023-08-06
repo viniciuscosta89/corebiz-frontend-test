@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const FooterRoot = styled.footer`
-	background-color: ${({ theme }) => theme.colors.black[900]};
+	background-color: ${({ theme }) => theme.colors['always-black']};
+	color: ${({ theme }) => theme.colors['always-white']};
 	padding: 1.75rem 0 1rem;
 	position: relative;
 

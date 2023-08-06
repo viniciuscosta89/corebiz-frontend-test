@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Button from '../Button';
 
 const FooterButton = styled(Button)`
+	background-color: ${({ theme }) => theme.colors['always-white']};
+	color: ${({ theme }) => theme.colors['always-black']};
 	display: grid;
 	grid-template-columns: auto 1fr;
 	place-items: center;

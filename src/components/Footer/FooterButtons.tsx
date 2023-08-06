@@ -6,7 +6,7 @@ const FooterButtons = styled.div`
 	padding-inline: 2.8rem;
 
 	@media (min-width: 1140px) {
-		grid-template-rows: repeat(2, 2.375rem);
+		grid-template-rows: repeat(2, 2.55rem);
 		max-width: 12.1875rem;
 		padding-inline: 0;
 	}

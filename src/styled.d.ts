@@ -1,12 +1,10 @@
-// import original module declarations
 import 'styled-components';
-import { Theme } from './src/styles/Theme';
+import { ThemeType } from './styles/DefaultTheme';
 
-export type ITheme = typeof Theme;
-
-// and extend them!
 declare module 'styled-components' {
-	export interface DefaultTheme extends ITheme {
+	export interface DefaultTheme extends ThemeType {
+		title: string;
+
 		colors: {
 			black: {
 				900: string;
@@ -19,11 +17,14 @@ declare module 'styled-components' {
 			};
 			white: string;
 			red: {
+				500: string;
 				400: string;
 			};
 			primary: string;
 			accent: string;
 			danger: string;
+			'always-white': string;
+			'always-black': string;
 		};
 		fonts: string[];
 	}
