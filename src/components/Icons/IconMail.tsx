@@ -1,6 +1,4 @@
-interface IconProps {
-	color: string;
-}
+import type { IconProps } from '../../types/iconTypes';
 
 function IconMail({ color }: IconProps) {
 	return (

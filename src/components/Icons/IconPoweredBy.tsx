@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-
-interface IconProps {
-	color: string;
-}
+import type { IconProps } from '../../types/iconTypes';
 
 const IconStyle = styled.div`
 	display: flex;

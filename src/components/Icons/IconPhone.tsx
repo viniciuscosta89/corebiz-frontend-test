@@ -1,6 +1,4 @@
-interface IconProps {
-	color: string;
-}
+import type { IconProps } from '../../types/iconTypes';
 
 function IconPhone({ color }: IconProps) {
 	return (
