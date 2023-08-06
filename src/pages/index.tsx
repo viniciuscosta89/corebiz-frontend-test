@@ -67,8 +67,10 @@ const ToggleButton = styled(Button)`
 	position: fixed;
 	display: grid;
 	place-items: center;
+	height: 3rem;
 	right: 0;
 	top: 50%;
+	z-index: 20;
 `;
 
 function Home() {
